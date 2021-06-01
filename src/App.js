@@ -39,7 +39,7 @@ export default class App extends Component {
             handleSubmit={this.handleSubmit}
             editItem={this.state.editItem}
           />
-          <h2 className = 'text-center text-capitalize' > todo list</h2>
+          <h2 className = 'text-center text-capitalize' > todo list items</h2>
           <TodoList
             items={this.state.items}
             handleEdit={this.handleEdit}
