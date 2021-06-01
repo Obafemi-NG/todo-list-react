@@ -13,27 +13,30 @@ export default class App extends Component {
   };
   handleChange = (e) => {
     this.setState({
-      item: e.target.value,
+      item: e.target.value
     });
   };
   handleSubmit = (e) => {
     e.preventDefault();
     const updatedItem = {
       id: this.state.id,
-      value: this.state.item,
+      title: this.state.item,
     };
     const newItems = [...this.state.items, updatedItem];
-    this.setState({
-      items: newItems,
-      id: uuidv4(),
-      item: "",
-    }, () => console.log(this.state));
+      this.setState({
+        items: newItems,
+        item: '',
+        id: uuidv4(),
+        editItem: false,
+      })
+    
+    
   };
   handleClearList = () => {
     console.log("handle clear list");
   };
   handleEdit = (id) => {
-    console.log(`handle delete ${id}`);
+    console.log(`handle edit ${id}`);
   };
   handleRemove = (id) => {
     console.log(`handle delete ${id}`);
@@ -51,7 +54,7 @@ export default class App extends Component {
               handleSubmit={this.handleSubmit}
               editItem={this.state.editItem}
             />
-            
+
             <TodoList
               items={this.state.items}
               handleEdit={this.handleEdit}
